@@ -16,7 +16,7 @@
 		margin: 0;
 
 		font-family: "Lato", sans-serif;
-		background-image: linear-gradient(135deg, var(--COLOR-1), var(--COLOR-3));
+		background-image: linear-gradient(135deg, var(--COLOR-2), var(--COLOR-4));
 		
     display: flex;
     align-items: center;

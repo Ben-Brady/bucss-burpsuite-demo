@@ -1,10 +1,7 @@
 <div>
   <h1>
-    YOU'VE FOUND THE FLAG
+    I told you nothing was hiding here
   </h1>
-  <h2>
-    {"{FLAG-54b#79v'as1_cu-4ci)e}"}
-  </h2>
 </div>
 
 <style>

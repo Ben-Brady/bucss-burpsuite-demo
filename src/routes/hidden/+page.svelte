@@ -1,7 +1,3 @@
-<script>
-  export const prerender = true;
-</script>
-
 <svelte:head>
   <script src="/admin.js"/>
 </svelte:head>
