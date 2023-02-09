@@ -1,7 +1,10 @@
 <div>
   <h1>
-    I told you nothing was hiding here
+    Success
   </h1>
+  <h2>
+    I told you nothing was hiding here
+  </h2>
 </div>
 
 <style>
