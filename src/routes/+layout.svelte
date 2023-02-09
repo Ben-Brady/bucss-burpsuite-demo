@@ -2,11 +2,11 @@
 
 <style>
   :global(*) {
-    --COLOR-1: #d9bbf9;
-    --COLOR-2: #cca7a2;
-    --COLOR-3: #aa9fb1;
-    --COLOR-4: #7871aa;
-    --COLOR-5: #4e5283;
+    --COLOR-1: #3877cc;
+    --COLOR-2: #508dc1;
+    --COLOR-3: #ae8ada;
+    --COLOR-4: #f87cf4;
+    --COLOR-5: #bea4a9;
   }
 
   :global(body) {
@@ -14,11 +14,13 @@
     height: 100vh;
     padding: 0;
 		margin: 0;
+
+		font-family: "Lato", sans-serif;
+		background-image: linear-gradient(135deg, var(--COLOR-1), var(--COLOR-3));
+		
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--COLOR-1);
-		font-family: "Lato", sans-serif;
   }
 	
 	/* latin */

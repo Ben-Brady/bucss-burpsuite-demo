@@ -12,16 +12,14 @@
   }
 </script>
 
-<div>
+<form on:submit={createComment}>
   <textarea bind:value={comment}/>
-  <button on:click={createComment}>
-    Submit Comment
-  </button>
-</div>
+  <input type="submit" value="Submit Comment"/>
+</form>
 
 
 <style>
-  div {
+  form {
     width: 80%;
 
     padding: .5rem;

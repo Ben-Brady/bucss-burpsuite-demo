@@ -8,7 +8,12 @@
   $: comments = null;
   async function createComment(event: CustomEvent<any>) {
     let text = event.detail;
-    
+
+    comments.push({
+      user: localStorage.getItem("username"),
+      text
+    });
+
     let r = await fetch("/csv/api/add", {
       method: "POST",
       body: JSON.stringify({
@@ -24,6 +29,7 @@
       await loadComments();
     }
   }
+  
   async function loadComments() {
     let r = await fetch("/csv/api/get");
     comments = await r.json();
@@ -39,9 +45,9 @@
   }
   onMount(onload)
 </script>
-
 <main>
-  <div style="grid-row: 1 / 2;">
+
+  <div>
     <div id="image-container">
       <img
         id="blog-image"
@@ -52,54 +58,56 @@
       />
     </div>
   </div>
-  <div id="comment-list">
+  <div id="comment">
+      <div id="comment-writer">
+        <CommentWriter on:submit={(event) => createComment(event)}/>
+      </div>
     {#if comments == null}
       <Loading/>
     {:else}
-      <div style="grid-column: 1 / 5;">
+      <div id="comment-list">
         <Comments {comments}/>
       </div>
     {/if}
-    <div id="comment-writer">
-      <CommentWriter on:submit={(event) => createComment(event)}/>
-    </div>
   </div>
 </main>
 
 <style>
   main {
-    max-width: min(50vw, 30rem);
-    min-width: min(50vw, 30rem);
-    max-height: 90vh;
-    min-height: 90vh;
+    height: 95vh; 
 
-    display: flex;
-    align-items: center;
+    display: grid;
+    align-items: flex-start;
     justify-content: center;
-    flex-flow: column nowrap;
-    
-    overflow-y: auto;
-    width: min-content;
-    height: min-content;
-
-    padding-top: 1rem;
-    border-radius: 1rem;
-    background-color: var(--COLOR-4);
-    border: solid .1rem var(--COLOR-5);
+    grid-template-columns: repeat(1fr, 2);
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "left right"
   }
 
-  div#comment-list {
-    width: 100%;
+  img#blog-image {
+    grid-area: left;
+    width: auto;
+    height: auto;
   }
 
+  div#comment {
+    grid-area: right;
+    height: 100%;
+  }
+  
   div#comment-writer {
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  img#blog-image {
-    width: 20rem;
-    height: auto;
+  div#comment-list {
+    width: 100%;
+    height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
   }
+  
 </style>
